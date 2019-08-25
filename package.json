@@ -1,7 +1,7 @@
 {
-  "name": "2019-recruitment",
+  "name": "2019-job-hunting",
   "version": "1.0.0",
-  "description": "For my 2019 recruitment",
+  "description": "For my 2019 job hunting",
   "main": "index.js",
   "scripts": {
     "cz": "git-cz",
