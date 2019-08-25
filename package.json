@@ -1,0 +1,33 @@
+{
+  "name": "2019-recruitment",
+  "version": "1.0.0",
+  "description": "For my 2019 recruitment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Molunerfinn",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "eslint": "^6.2.2",
+    "eslint-config-standard": "^14.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.18"
+  },
+  "jest": {
+    "verbose": true,
+    "coverageDirectory": "coverage",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
+  }
+}
