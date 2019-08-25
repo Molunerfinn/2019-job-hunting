@@ -7,7 +7,7 @@
 function promisify (fn) {
   return function (...args) {
     return new Promise((resolve, reject) => {
-      fn(...args, (err, data) => {
+      fn.call(this, ...args, (err, data) => {
         if (err) {
           reject(err)
         } else {
