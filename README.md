@@ -18,3 +18,4 @@
 | [debounce.js](./js/debounce.js)                     | 实现 `debounce` 防抖函数                                  | ✅    |
 | [throttle.js](./js/throttle.js)                     | 实现 `throttle` 节流函数                                  | ✅    |
 | [promiseRace.js](./js/promiseRace.js)               | 实现 `Promise.race`                                       | ✅    |
+| [newInstanceof.js](./js/newInstanceof.js)           | 实现 `instanceof` 操作符                                  | ✅    |
