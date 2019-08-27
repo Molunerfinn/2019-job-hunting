@@ -19,3 +19,4 @@
 | [throttle.js](./js/throttle.js)                     | 实现 `throttle` 节流函数                                  | ✅    |
 | [promiseRace.js](./js/promiseRace.js)               | 实现 `Promise.race`                                       | ✅    |
 | [newInstanceof.js](./js/newInstanceof.js)           | 实现 `instanceof` 操作符                                  | ✅    |
+| [newSetInterval.js](./js/newSetInterval.js)         | 用 `setTimeout` 实现 `setInterval`                        | ✅    |
