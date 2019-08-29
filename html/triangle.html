@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Triangle</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    .title {
+      margin-bottom: 20px;
+    }
+    .triangle {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: 100px solid transparent;
+      border-top-color: #49B1F5;
+      transition: all .2s ease-in-out;
+    }
+    .rotate {
+      margin-top: 50px;
+      transform: rotate(45deg)
+    }
+    .hover:hover {
+      cursor: pointer;
+      animation: hoverRotate 1s linear 0s infinite;
+    }
+    @keyframes hoverRotate {
+      from {
+        transform: rotateZ(0deg)
+      }
+      to {
+        transform: rotateZ(360deg)
+      }
+    }
+    .desc {
+      color: #aaa;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="desc">
+    主要用于复习CSS绘制三角形，顺便复习一下transform和animation
+  </h2>
+  <div class="block">
+    <div class="title">
+      画三角形
+    </div>
+    <div class="triangle"></div>
+  </div>
+
+  <div class="block">
+    <div class="title">
+      画三角形 + 旋转
+    </div>
+    <div class="triangle rotate"></div>
+  </div>
+
+  <div class="block">
+    <div class="title">
+      画三角形 + Hover + 旋转
+    </div>
+    <div class="triangle hover"></div>
+  </div>
+
+</body>
+</html>
