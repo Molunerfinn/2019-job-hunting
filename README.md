@@ -21,3 +21,4 @@
 | [newInstanceof.js](./js/newInstanceof.js)           | 实现 `instanceof` 操作符                                  | ✅    |
 | [newSetInterval.js](./js/newSetInterval.js)         | 用 `setTimeout` 实现 `setInterval`                        | ✅    |
 | [getUrlParams.js](./js/getUrlParams.js)             | 实现一个获取URL参数的方法                                 | ✅    |
+| [eventEmitter.js](./js/eventEmitter.js)             | 实现 `eventEmitter`                                       | ✅    |
