@@ -11,6 +11,9 @@
 3. 双链表合并
 
 而具体到题目的做法上，一般都会需要用到递归或者迭代来做。
+
+并且通常我们会构建一个临时的头结点（比如T）。假如原始链表头为head，那么 `T.next = head` 。不管原始链表如何变化，最后结果只要返回 `T.next` 即可。这在对付原始头结点有可能更改的情况下会很好用，因为可以少考虑头结点的边界情况。
+
 同时，由于经常要修改链表，需要牢记一个点： **只有修改了 `next` 指向的操作才会修改链表本身。**
 
 考虑如下代码：
@@ -41,7 +44,7 @@ while (a !== null) {
 
 > 反转链表，分别用递归和迭代来实现
 
-1. 递归版
+1.递归版
 
 ```js
 /**
@@ -63,7 +66,7 @@ var reverseList = function (head) {
 }
 ```
 
-2. 迭代版（头插法）
+2.迭代版（头插法）
 
 ```js
 /**
@@ -186,8 +189,117 @@ var partition = function(head, x) {
 
 常见思路：
 
-1. 中序遍历（对应平衡二叉树相关的问题）
-2. 栈或队列（对应层序遍历二叉树）
-3. 广搜或深搜（BFS、DFS）
+1. 前序遍历
+2. 中序遍历（对应平衡二叉树相关的问题）
+3. 栈或队列（对应层序遍历二叉树）
+4. 广搜或深搜（BFS、DFS）
 
-### 【中序遍历】
+
+### 【前序遍历】LeetCode 144
+
+> 分别用递归和迭代实现二叉树的中序遍历
+
+1.递归版
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var preorderTraversal = function(root) {
+  let result = []
+  preorderTraversalCore(root, result)
+  return result
+}
+
+function preorderTraversalCore (root, result) {
+  if (root === null) {
+    return []
+  }
+  result.push(root.val)
+  preorderTraversalCore(root.left)
+  preorderTraversalCore(root.right)
+}
+```
+
+2.迭代版
+
+> 迭代版一般会用栈来实现。
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var preorderTraversal = function(root) {
+  if (root === null) {
+    return []
+  }
+  let stack = [root]
+  let result = []
+  while (stack.length !== 0) {
+    let current = stack.pop()
+    if (current !== null) {
+      result.push(current.val) // 先访问根
+      stack.push(current.right) // 之所以先推right再推left，是因为这样的话left会被先pop出来。
+      stack.push(current.left)
+    }
+  }
+}
+```
+
+
+### 【中序遍历】LeetCode 94
+
+> 分别用递归和迭代实现二叉树的中序遍历
+
+1.递归版
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function (root) {
+  let result = []
+  inorderTraversalCore(root, result)
+  return result
+}
+
+function inorderTraversalCore(root, result) {
+  if (root === null) {
+    return []
+  }
+  inorderTraversalCore(root.left, result)
+  result.push(root.val)
+  inorderTraversalCore(root.right, result)
+}
+```
+
+2.迭代版
+
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function (root) {
+  if (root === null) {
+    return []
+  }
+  let stack = []
+  let result = []
+  while (stack.length !== 0 || root !== null) {
+    while (root ！== null) {
+      stack.push(root)
+      root = root.left // 先访问左子树
+    }
+    root = stack.pop()
+    result.push(root.val) // push的顺序是左、中、右
+    root = root.right // 再访问右子树
+  }
+  return result
+}
+```
+
+
