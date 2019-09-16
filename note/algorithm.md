@@ -181,3 +181,13 @@ var partition = function(head, x) {
   return pLeftHead.next
 }
 ```
+
+## 树
+
+常见思路：
+
+1. 中序遍历（对应平衡二叉树相关的问题）
+2. 栈或队列（对应层序遍历二叉树）
+3. 广搜或深搜（BFS、DFS）
+
+### 【中序遍历】

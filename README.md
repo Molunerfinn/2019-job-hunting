@@ -22,6 +22,7 @@
 | [newSetInterval.js](./js/newSetInterval.js)         | 用 `setTimeout` 实现 `setInterval`                        | ✅   |
 | [getUrlParams.js](./js/getUrlParams.js)             | 实现一个获取 URL 参数的方法                               | ✅   |
 | [eventEmitter.js](./js/eventEmitter.js)             | 实现 `eventEmitter`                                       | ✅   |
+| [quickSort.js](./js/quickSort.js)                   | 实现一个快排                                              | ✅   |
 
 ### note
 
