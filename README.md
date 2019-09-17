@@ -23,6 +23,9 @@
 | [getUrlParams.js](./js/getUrlParams.js)             | 实现一个获取 URL 参数的方法                               | ✅   |
 | [eventEmitter.js](./js/eventEmitter.js)             | 实现 `eventEmitter`                                       | ✅   |
 | [quickSort.js](./js/quickSort.js)                   | 实现一个快排                                              | ✅   |
+| [newCall.js](./js/newCall.js)                       | 实现 `call`                                               | ✅   |
+| [newApply.js](./js/newApply.js)                     | 实现 `apply`                                              | ✅   |
+| [newBind.js](./js/quickSort.js)                     | 实现 `bind`                                               | ✅   |
 
 ### note
 
