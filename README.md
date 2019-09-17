@@ -25,7 +25,8 @@
 | [quickSort.js](./js/quickSort.js)                   | 实现一个快排                                              | ✅   |
 | [newCall.js](./js/newCall.js)                       | 实现 `call`                                               | ✅   |
 | [newApply.js](./js/newApply.js)                     | 实现 `apply`                                              | ✅   |
-| [newBind.js](./js/quickSort.js)                     | 实现 `bind`                                               | ✅   |
+| [newBind.js](./js/newBind.js)                       | 实现 `bind`                                               | ✅   |
+| [myNew.js](./js/myNew.js)                           | 实现 `new`                                                | ✅   |
 
 ### note
 
