@@ -302,4 +302,109 @@ var inorderTraversal = function (root) {
 }
 ```
 
+## 回溯或DFS
 
+其实我也并不是非常理解二者的区别。有的文章说回溯是DFS的一种特例。此处暂且不谈。
+
+通常在做那种需要列出所有方案的题目时，我们会考虑用回溯法来实现。回溯法有相对固定的写法：
+
+1. 终止条件判断并返回结果
+2. 循环递归
+   1. 递归前push数据
+   2. 递归后pop数据（用于还原）
+
+通常我们会先写第2步，写完之后再考虑终止条件，此时再回头写第一步。
+
+### LeetCode 90
+
+> 给定一个数组，返回所有可能的子数组，包括空数组
+
+```js
+var subsetsWithDup = function(nums) {
+  if (nums.length === 0) {
+    return [[]]
+  }
+  let result = [[]] // 先将空数组存入
+  // 排序是为了去重的时候方便判断
+  nums = nums.sort((a, b) => a - b)
+  for (let i = 1; i <= nums.length; i++) {
+    // 深度从1 -> N
+    subsetsWithDupCore(nums, result, [], i, 0)
+  }
+  return result
+};
+
+/**
+ * @param {number[]} nums 
+ * @param {number[]} result 
+ * @param {number[]} path 
+ * @param {number} depth 
+ * @param {number} start 
+ */
+function subsetsWithDupCore(nums, result, path, depth, start) {
+  // 通常在回溯的开头写终止条件
+  // 此处我们可以定义一个递归深度depth来结束
+  if (path.length === depth) {
+    result.push(path.slice())
+    return
+  }
+  // 利用start来标记起始点
+  for (let i = start; i < nums.length; i++) {
+    // 去重复
+    if (i !== start && nums[i] === nums[i - 1]) {
+      continue
+    }
+    path.push(nums[i])
+    subsetsWithDupCore(nums, result, path, depth, i + 1)
+    path.pop() // 还原，用于下一步，避免重复
+  }
+}
+```
+
+### LeetCode 40
+
+> 给定一个数组和一个target，求和为target的组合（元素不能重复使用）
+
+```js
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum2 = function(candidates, target) {
+  if (candidates.length === 0) {
+    return []
+  }
+  let results = []
+  let path = []
+  candidates = candidates.sort((a, b) => a - b)
+  combinationCore(candidates, target, 0, path, results)
+  return results
+};
+
+function combinationCore (candidates, target, start, path, results) {
+  // 终止条件
+  if (target === 0) {
+    return results.push(path.slice())
+  }
+  // 以start开始
+  for (let i = start; i < candidates.length; i++) {
+    // 由于排序过，所以如果当前candidates[i]大于target，后续的candidates也一定大于target，直接return
+    if (candidates[i] > target) {
+      return
+    }
+    // 1，1，2，3...，当有重复数字时，需要跳过
+    // 比如这里的1。当i===0时，会和i===1时情况重复。所以i===1时需要跳过
+    if (i !== start && candidates[i] === candidates[i - 1]) {
+      continue
+    }
+    target = target - candidates[i]
+    if (target >= 0) {
+      path.push(candidates[i])
+      combinationCore(candidates, target, i + 1, path, results)
+      path.pop() // 还原
+    }
+    target += candidates[i] // 还原
+  }
+}
+```
